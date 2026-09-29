@@ -1,0 +1,57 @@
+<html>
+
+	<head>
+	<title>Is today Friday?</title>
+
+	</head>
+
+<body style="display: flex; flex-direction: column; height: 100vh; margin: 0; box-sizing: border-box;">
+	<div style="text-align: center; flex: 0 0 auto;">
+		<select id="lang">
+			<option value="en">English</option>
+			<option value="de">Deutsch</option>
+			<option value="es">Español</option>
+			<option value="fr">Français</option>
+			<option value="pt">Português</option>
+			<option value="pl">Polski</option>
+			<option value="sr">Српски</option>
+			<option value="lt">Lietuvių</option>
+			<option value="sl">Slovenščina</option>
+		</select>
+	</div>
+
+	<h1 id="heading" style="text-align: center; flex: 0 0 auto;">Is today Friday?</h1>
+
+	<div style="flex: 1 1 auto; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+		<center id="answer" style="font-size: 80vh; line-height: 1;">No</center>
+	</div>
+
+	<script>
+		const translations = {
+			en: { title: 'Is today Friday?', heading: 'Is today Friday?', yes: 'Yes', no: 'No' },
+			de: { title: 'Ist heute Freitag?', heading: 'Ist heute Freitag?', yes: 'Ja', no: 'Nein' },
+			es: { title: '¿Hoy es viernes?', heading: '¿Hoy es viernes?', yes: 'Sí', no: 'No' },
+			fr: { title: 'Sommes-nous vendredi aujourd\'hui ?', heading: 'Sommes-nous vendredi aujourd\'hui ?', yes: 'Oui', no: 'Non' },
+			pt: { title: 'Hoje é sexta-feira?', heading: 'Hoje é sexta-feira?', yes: 'Sim', no: 'Não' },
+			pl: { title: 'Czy dziś jest piątek?', heading: 'Czy dziś jest piątek?', yes: 'Tak', no: 'Nie' },
+			sr: { title: 'Да ли је данас петак?', heading: 'Да ли је данас петак?', yes: 'Да', no: 'Не' },
+			lt: { title: 'Ar šiandien penktadienis?', heading: 'Ar šiandien penktadienis?', yes: 'Taip', no: 'Ne' },
+			sl: { title: 'Ali je danes petek?', heading: 'Ali je danes petek?', yes: 'Da', no: 'Ne' }
+		};
+
+		const isFriday = new Date().getDay() === 5;
+		const langSelect = document.getElementById('lang');
+
+		function render(lang) {
+			const t = translations[lang];
+			document.title = t.title;
+			document.getElementById('heading').textContent = t.heading;
+			document.getElementById('answer').textContent = isFriday ? t.yes : t.no;
+		}
+
+		langSelect.addEventListener('change', () => render(langSelect.value));
+		render(langSelect.value);
+	</script>
+</body>
+
+</html>
