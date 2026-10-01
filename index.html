@@ -2,13 +2,14 @@
 
 	<head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Is today Friday?</title>
 
 	</head>
 
 <body style="display: flex; flex-direction: column; height: 100vh; margin: 0; box-sizing: border-box;">
-	<div style="text-align: center; flex: 0 0 auto;">
-		<select id="lang">
+	<div style="text-align: center; flex: 0 0 auto; padding: 0.5em 0.5em 0;">
+		<select id="lang" style="font-size: 1rem; max-width: 100%;">
 			<option value="en">English</option>
 			<option value="de">Deutsch</option>
 			<option value="es">Español</option>
@@ -27,10 +28,10 @@
 		</select>
 	</div>
 
-	<h1 id="heading" style="text-align: center; flex: 0 0 auto;">Is today Friday?</h1>
+	<h1 id="heading" style="text-align: center; flex: 0 0 auto; font-size: min(6vw, 2em); padding: 0 0.5em; box-sizing: border-box;">Is today Friday?</h1>
 
 	<div style="flex: 1 1 auto; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-		<center id="answer" style="font-size: 80vh; line-height: 1;">No</center>
+		<center id="answer" style="font-size: min(80vh, 80vw); line-height: 1;">No</center>
 	</div>
 
 	<script>
